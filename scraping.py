@@ -107,6 +107,7 @@ def main():
     st.write(last_data)
     #更新ボタン
     st.button('更新')
+    st.write('最終更新時刻:' + str(datetime.today().replace(microsecond=0)))
     
 if __name__ == '__main__':
     main()
