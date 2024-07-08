@@ -2,3 +2,4 @@ requests==2.31.0
 beautifulsoup4==4.12.3
 pandas==2.2.2
 streamlit==1.36.0
+pytz==2024.1

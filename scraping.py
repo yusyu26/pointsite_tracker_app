@@ -3,6 +3,7 @@ import requests
 from bs4 import BeautifulSoup
 import pandas as pd
 from datetime import datetime,date
+import pytz
 
 #広告のURL
 sites=[
@@ -46,7 +47,7 @@ def main():
     #データの読み込み
     df = load_data_from_csv()
     #日付の取得
-    today = datetime.today().date()
+    today = datetime.now(pytz.timezone('Asia/Tokyo')).date()
     
     #前回の更新から日付が変わっていればスクレイピング実行
     if df.iloc[-1][0] != str(today):
@@ -107,7 +108,7 @@ def main():
     st.write(last_data)
     #更新ボタン
     st.button('更新')
-    st.write('最終更新時刻:' + str(datetime.today().replace(microsecond=0)))
+    st.write('最終更新時刻:' + str(datetime.now(pytz.timezone('Asia/Tokyo')).replace(microsecond=0)))
     
 if __name__ == '__main__':
     main()
